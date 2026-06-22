@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIBO | Capturing the Unwritten DNA of SMEs</title>
+    <style>
+        :root {
+            --primary-blue: #1A2B4C;
+            --accent-teal: #17B2B8;
+            --accent-orange: #F26D21;
+            --light-bg: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #777777;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-teal);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            background-color: var(--accent-orange);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #d95e1a;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(242, 109, 33, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            color: var(--white);
+            padding: 150px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(26, 43, 76, 0.65), rgba(26, 43, 76, 0.65)), url('engineer_dna_hero.png') center/cover no-repeat;
+            z-index: -1;
+            animation: heroMove 5s infinite alternate ease-in-out;
+            transform-origin: center center;
+        }
+
+        @keyframes heroMove {
+            0% {
+                transform: scale(1) translateX(0);
+            }
+
+            100% {
+                transform: scale(1.2) translateX(-3%);
+            }
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            opacity: 0.7;
+        }
+
+        /* Bubbles Animation */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: floatUp 15s infinite ease-in;
+            backdrop-filter: blur(2px);
+        }
+
+        .bubble:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 30px;
+            height: 30px;
+            left: 20%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            left: 35%;
+            animation-duration: 10s;
+            animation-delay: 4s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 40px;
+            height: 40px;
+            left: 50%;
+            animation-duration: 7s;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(5) {
+            width: 35px;
+            height: 35px;
+            left: 65%;
+            animation-duration: 6s;
+            animation-delay: 3s;
+        }
+
+        .bubble:nth-child(6) {
+            width: 70px;
+            height: 70px;
+            left: 75%;
+            animation-duration: 9s;
+            animation-delay: 5s;
+        }
+
+        .bubble:nth-child(7) {
+            width: 50px;
+            height: 50px;
+            left: 85%;
+            animation-duration: 8s;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(8) {
+            width: 25px;
+            height: 25px;
+            left: 95%;
+            animation-duration: 5s;
+            animation-delay: 6s;
+        }
+
+        .bubble:nth-child(9) {
+            width: 90px;
+            height: 90px;
+            left: 25%;
+            animation-duration: 11s;
+            animation-delay: 2s;
+            background: rgba(23, 178, 184, 0.2);
+        }
+
+        .bubble:nth-child(10) {
+            width: 65px;
+            height: 65px;
+            left: 55%;
+            animation-duration: 12s;
+            animation-delay: 4s;
+            background: rgba(242, 109, 33, 0.2);
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-1000px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* General Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-top: 4px solid var(--accent-teal);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .card:nth-child(1) {
+            border-top-color: var(--accent-orange);
+        }
+
+        .card:nth-child(1):hover h3 {
+            color: var(--accent-orange);
+        }
+
+        .card:nth-child(2) {
+            border-top-color: var(--accent-teal);
+        }
+
+        .card:nth-child(2):hover h3 {
+            color: var(--accent-teal);
+        }
+
+        .card:nth-child(3) {
+            border-top-color: #E63946;
+        }
+
+        /* Alert Red for Wrong Gear */
+        .card:nth-child(3):hover h3 {
+            color: #E63946;
+        }
+
+        .card:nth-child(4) {
+            border-top-color: #8E24AA;
+        }
+
+        /* Deep Purple for Dependency */
+        .card:nth-child(4):hover h3 {
+            color: #8E24AA;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            border-left: 3px solid var(--accent-orange);
+            padding-left: 10px;
+            margin-top: auto;
+        }
+
+        /* Solution Section */
+        .bg-light {
+            background-color: var(--light-bg);
+        }
+
+        .step-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .step-content {
+            padding: 30px;
+        }
+
+        .step-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: rgba(23, 178, 184, 0.15);
+            line-height: 1;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .step-card:hover .step-number {
+            color: rgba(242, 109, 33, 0.2);
+        }
+
+        /* Roadmap Section - REDESIGNED FOR YEAR 1 & YEAR 2 */
+        .roadmap-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .roadmap-year {
+            margin-bottom: 70px;
+        }
+
+        .year-title {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-teal);
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .roadmap-item {
+            display: flex;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 45px;
+            bottom: -45px;
+            width: 3px;
+            background-color: #e0e4eb;
+            z-index: 1;
+        }
+
+        .roadmap-item:last-child::before {
+            display: none;
+        }
+
+        .roadmap-marker {
+            width: 50px;
+            height: 50px;
+            background-color: var(--white);
+            border: 4px solid var(--accent-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .roadmap-marker-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-teal);
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .roadmap-item:hover .roadmap-marker {
+            border-color: var(--accent-orange);
+            transform: scale(1.1);
+        }
+
+        .roadmap-item:hover .roadmap-marker-dot {
+            background-color: var(--accent-orange);
+        }
+
+        .roadmap-content {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin-left: 35px;
+            flex-grow: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border-left: 4px solid var(--accent-orange);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .roadmap-item:hover .roadmap-content {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .roadmap-quarter {
+            color: var(--accent-orange);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .roadmap-content h4 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .roadmap-content ul {
+            list-style: none;
+        }
+
+        .roadmap-content ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .roadmap-content ul li::before {
+            content: '•';
+            color: var(--accent-teal);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -6px;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-color: transparent;
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px auto;
+            border: 4px solid var(--light-bg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .team-member:hover .team-photo {
+            transform: scale(1.1);
+            border-color: var(--accent-teal);
+        }
+
+        .linkedin-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .linkedin-link::after {
+            content: '🔗 LinkedIn';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: #0a66c2;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .linkedin-link::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(14px);
+            border-width: 6px;
+            border-style: solid;
+            border-color: #0a66c2 transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .linkedin-link:hover {
+            color: #0a66c2;
+        }
+
+        .linkedin-link:hover::after,
+        .linkedin-link:hover::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .role {
+            color: var(--accent-teal);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero {
+                padding: 100px 0;
+            }
+
+            .delay-1,
+            .delay-2,
+            .delay-3,
+            .delay-4 {
+                transition-delay: 0s;
+            }
+
+            .roadmap-item::before {
+                left: 20px;
+            }
+
+            .roadmap-marker {
+                width: 40px;
+                height: 40px;
+            }
+
+            .roadmap-content {
+                margin-left: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo"><img src="aibo-logo.png" alt="AIBO Logo"></a>
+            <div class="nav-links">
+                <a href="#problem">The Gap</a>
+                <a href="#solution">The System</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#team">Team</a>
+            </div>
+            <a href="mailto:ruth@aibo.ai" class="btn">Get in Touch</a>
+        </div>
+    </nav>
+
+    <section class="hero reveal active">
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <h1>Capturing the Unwritten DNA of SMEs</h1>
+            <p>Coming soon</p>
+            <a href="#solution" class="btn" style="background-color: var(--accent-teal); margin-right: 15px;">Explore
+                AIBO</a>
+        </div>
+    </section>
+
+    <section id="problem" class="section bg-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Strategic Knowledge Gap</h2>
+                <p>SME owners are overwhelmed by operational noise. Vital business heuristics, client history, and
+                    critical workflows exist solely in the heads of a few key people.</p>
+            </div>
+
+            <div class="grid-4">
+                <div class="card reveal delay-1">
+                    <img src="legal_back_and_forth.png" alt="Fragmented Communication" loading="lazy">
+                    <div class="card-content">
+                        <h3>01. Communication Fragmentation</h3>
+                        <p>Information re-entered, re-sent and chased across disconnected channels with no single source
+                            of truth.</p>
+                        <div class="quote">"Coming Soon" —
+                            Legal Practice</div>
+                    </div>
+                </div>
+                <div class="card reveal delay-2">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="System Bridging" loading="lazy">
+                    <div class="card-content">
+                        <h3>02. Manual System Bridging</h3>
+                        <p>Multiple legacy systems that don’t talk to each other. The gap is filled by a person.</p>
+                        <div class="quote">"Coming Soon" — Estate
+                            Agent</div>
+                    </div>
+                </div>
+                <div class="card reveal delay-3">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Operating Infrastructure" loading="lazy">
+                    <div class="card-content">
+                        <h3>03. Stuck in the Wrong Gear</h3>
+                        <p>Volume and complexity have grown. The operating infrastructure hasn’t kept pace.</p>
+                        <div class="quote">"So much of the day is reacting... instead of the proactive work..." — Estate
+                            Agent</div>
+                    </div>
+                </div>
+                <div class="card reveal delay-4">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Dependency" loading="lazy">
+                    <div class="card-content">
+                        <h3>04. Owner Dependency</h3>
+                        <p>Critical operational knowledge held in one or two heads. Undocumented, undelegated, a
+                            structural single point of failure.</p>
+                        <div class="quote">"My role is called Strategy Officer, which I think means pick up the pieces."
+                            — Hotelier</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Coming Soon</h2>
+                <p>Coming Soon</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="step-card reveal delay-1">
+                    <img src="ai-phone-conversation.png" alt="Owner talking to AI representation on phone"
+                        loading="lazy">
+                    <div class="step-content">
+                        <div class="step-number">01</div>
+                        <h3>Coming Soo</h3>
+                        <p>Coming Soo</p>
+                    </div>
+                </div>
+                <div class="step-card reveal delay-2">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Build Phase" loading="lazy">
+                    <div class="step-content">
+                        <div class="step-number">02</div>
+                        <h3>Coming Soo</h3>
+                        <p>Coming Soo</p>
+                    </div>
+                </div>
+                <div class="step-card reveal delay-3">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Engage Phase" loading="lazy">
+                    <div class="step-content">
+                        <div class="step-number">03</div>
+                        <h3>Coming Soo</h3>
+                        <p>Coming Soo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="section bg-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Technical & Commercial Roadmap</h2>
+                <p>A disciplined build partnering with SME operators to bridge the operational gap.</p>
+            </div>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; align-items: center;">
+                <div class="reveal delay-1">
+                    <div style="margin-bottom: 40px;">
+                        <h3
+                            style="color: var(--accent-teal); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">
+                            Year 1</h3>
+                        <h4 style="color: var(--primary-blue); font-size: 1.6rem; margin-bottom: 15px;">Scoping &
+                            Prototyping</h4>
+                        <p style="color: var(--text-light); font-size: 1.05rem;">Alignment, technical design,
+                            interactive prototyping, functional module integration, and alpha/beta release deployment
+                            with pilot users.</p>
+                    </div>
+                    <div>
+                        <h3
+                            style="color: var(--accent-orange); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">
+                            Year 2</h3>
+                        <h4 style="color: var(--primary-blue); font-size: 1.6rem; margin-bottom: 15px;">CI/CD & Revenue
+                            Scale</h4>
+                        <p style="color: var(--text-light); font-size: 1.05rem;">Feature iteration based on usage data,
+                            continuous deployment cycles, onboarding early adopters, and achieving commercial scale with
+                            robust platform stability.</p>
+                    </div>
+                </div>
+                <div class="reveal delay-2">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Technical Roadmap Planning"
+                        style="width: 100%; border-radius: 8px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);"
+                        loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>The Foundation Team</h2>
+                <p>Combining commercial scale with specialized applied AI architecture.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member reveal delay-1">
+                    <img src="ruth.png" alt="Ruth Purcell" class="team-photo" loading="lazy">
+                    <h3><a href="https://www.linkedin.com/in/ruthpurcell/" target="_blank" class="linkedin-link"
+                            title="View LinkedIn Profile">Ruth Purcell</a></h3>
+                    <span class="role">CEO / COMMERCIAL LEAD</span>
+                    <p>25+ years of scaling commercial operations. Meta Alumni Senior Client Partner; GM at Avid Gaming.
+                        Managed 400% revenue scale programs.</p>
+                </div>
+                <div class="team-member reveal delay-2">
+                    <img src="sean-mcmahon-lighting-bg-removed.png" alt="Sean McMahon" class="team-photo"
+                        loading="lazy">
+                    <h3><a href="https://www.linkedin.com/in/seanjmcmahon/" target="_blank" class="linkedin-link"
+                            title="View LinkedIn Profile">Sean McMahon</a></h3>
+                    <span class="role">CTO / APPLIED AI SPECIALIST</span>
+                    <p>MSc, MEng, BEng. Machine learning developer. Managed clinical neural-network validation
+                        architecture projects with the Nimbus Research Centre.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container reveal">
+            <a href="#"><img src="aibo-logo.png" alt="AIBO Logo" class="footer-logo"></a>
+            <p>The AI that knows your business.</p>
+            <p style="margin-top: 20px; font-size: 0.85rem;">© 2026 AIBO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Scroll Reveal Logic
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                if (!el.classList.contains('active')) {
+                    observer.observe(el);
+                }
+            });
+
+            // 2. Cursor Trail Logic
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            document.body.appendChild(canvas);
+
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100vw';
+            canvas.style.height = '100vh';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.zIndex = '9999';
+
+            let particlesArray = [];
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            let mouse = { x: null, y: null };
+
+            function createParticles(x, y) {
+                mouse.x = x;
+                mouse.y = y;
+                for (let i = 0; i < 2; i++) {
+                    particlesArray.push(new Particle());
+                }
+            }
+
+            window.addEventListener('mousemove', function (event) {
+                createParticles(event.x, event.y);
+            });
+
+            window.addEventListener('touchmove', function (event) {
+                if (event.touches.length > 0) {
+                    createParticles(event.touches[0].clientX, event.touches[0].clientY);
+                }
+            }, { passive: true });
+
+            window.addEventListener('touchstart', function (event) {
+                if (event.touches.length > 0) {
+                    createParticles(event.touches[0].clientX, event.touches[0].clientY);
+                }
+            }, { passive: true });
+
+            class Particle {
+                constructor() {
+                    this.x = mouse.x;
+                    this.y = mouse.y;
+                    this.size = Math.random() * 4 + 1;
+                    this.speedX = Math.random() * 2 - 1;
+                    this.speedY = Math.random() * 2 - 1;
+                    this.color = `rgba(23, 178, 184, ${Math.random()})`;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.size > 0.1) this.size -= 0.0666667;
+                }
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function handleParticles() {
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                    if (particlesArray[i].size <= 0.2) {
+                        particlesArray.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                handleParticles();
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        });
+    </script>
+</body>
+
+</html>
